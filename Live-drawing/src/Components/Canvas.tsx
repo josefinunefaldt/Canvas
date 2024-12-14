@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import Triangle from "./Triangle";
 import Circle from "./Circle";
 import Square from "./Square";
+import ColorPalette from "./ColorPalette";
 
 type Position = {
   x: number;
@@ -14,10 +15,6 @@ const Canvas = () => {
   const [lastPosition, setLastPosition] = useState<Position>({ x: 0, y: 0 });
 
   const [color, setColor] = useState("blue");
-
-  const changeColor = (newColor: string) => {
-    setColor(newColor);
-  };
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     setDrawing(true);
@@ -40,6 +37,14 @@ const Canvas = () => {
     context.stroke();
 
     setLastPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
+  };
+
+  const deleteDrawing = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const context = canvas.getContext("2d");
+    if (!context) return;
+    context.clearRect(0, 0, canvas.width, canvas.height);
   };
 
   const stopDrawing = () => {
@@ -71,9 +76,8 @@ const Canvas = () => {
         <Triangle canvasRef={canvasRef} />
         <Circle canvasRef={canvasRef} />
         <Square canvasRef={canvasRef} />
-        <button onClick={() => changeColor("orange")}>Orange</button>
-        <button onClick={() => changeColor("yellow")}>Yellow</button>
-        <button onClick={() => changeColor("red")}>Red</button>
+        <ColorPalette setColor={setColor} />
+        <button onClick={deleteDrawing}>Delete</button>
       </div>
     </div>
   );
