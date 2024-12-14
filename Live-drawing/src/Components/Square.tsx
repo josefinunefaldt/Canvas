@@ -21,6 +21,4 @@ const Square = ({canvasRef}: SquareProps) => {
 return <button onClick={drawSquare}>Square</button>;  
 }
 
-
-
 export default Square
