@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import Triangle from './Triangle';
 import Circle from './Circle';
+import Square from './Square';
 
 type Position = {
   x: number;
@@ -55,6 +56,7 @@ const Canvas = () => {
   gap: '10px' , display: 'flex', flexDirection: 'column' }}>
     <Triangle canvasRef={canvasRef} />
     <Circle canvasRef={canvasRef} />
+    <Square canvasRef={canvasRef} />
   </div>
 </div>
   );
