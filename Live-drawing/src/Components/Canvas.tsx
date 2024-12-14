@@ -82,9 +82,9 @@ const Canvas = () => {
           />
         </div>
         <div className="component-container">
-          <Triangle canvasRef={canvasRef} />
-          <Circle canvasRef={canvasRef} />
-          <Square canvasRef={canvasRef} />
+          <Triangle canvasRef={canvasRef} color={color} />
+          <Circle canvasRef={canvasRef} color={color} />
+          <Square canvasRef={canvasRef} color={color} />
           <ColorPalette setColor={setColor} />
           <button className=" delete-btn btn btn-error" onClick={deleteDrawing}>
             Delete
