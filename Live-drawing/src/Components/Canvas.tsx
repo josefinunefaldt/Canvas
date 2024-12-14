@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Triangle from "./Triangle";
 import Circle from "./Circle";
 import Square from "./Square";
@@ -52,26 +52,44 @@ const Canvas = () => {
     setDrawing(false);
   };
 
+  useEffect(() => {
+    if (!drawing) {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const dataUrl = canvas.toDataURL();
+      localStorage.setItem("drawing", dataUrl);
+      console.log("Doodle saved!");
+    }
+  }, [drawing]);
+
   return (
-    <div className="canvas-container">
-      <canvas
-        className="canvas card  bg-slate-50 shadow-xl"
-        ref={canvasRef}
-        width={1000}
-        height={600}
-        onMouseDown={startDrawing}
-        onMouseMove={drawingSession}
-        onMouseUp={stopDrawing}
-        onMouseLeave={stopDrawing}
-      />
-      <div className="component-container">
-        <Triangle canvasRef={canvasRef} />
-        <Circle canvasRef={canvasRef} />
-        <Square canvasRef={canvasRef} />
-        <ColorPalette setColor={setColor} />
-        <button className=" delete-btn btn btn-error" onClick={deleteDrawing}>
-          Delete
-        </button>
+    <div>
+      <div className="canvas-container">
+        <div className="flex flex-col items-center">
+          <h1 className="text-4xl font-bold font-cosmic mb-4 mt-1">
+            Rocket doodle <i className="fas fa-rocket"></i>
+          </h1>
+
+          <canvas
+            className="canvas card  bg-slate-50 shadow-xl"
+            ref={canvasRef}
+            width={1000}
+            height={600}
+            onMouseDown={startDrawing}
+            onMouseMove={drawingSession}
+            onMouseUp={stopDrawing}
+            onMouseLeave={stopDrawing}
+          />
+        </div>
+        <div className="component-container">
+          <Triangle canvasRef={canvasRef} />
+          <Circle canvasRef={canvasRef} />
+          <Square canvasRef={canvasRef} />
+          <ColorPalette setColor={setColor} />
+          <button className=" delete-btn btn btn-error" onClick={deleteDrawing}>
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

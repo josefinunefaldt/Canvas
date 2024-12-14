@@ -4,18 +4,22 @@ type ColorPaletteProps = {
 
 const ColorPalette = ({ setColor }: ColorPaletteProps) => (
   <div>
-    <button className="btn btn-success" onClick={() => setColor("green")}>
-      Green
-    </button>
-    <button className=" btn bg-blue-700" onClick={() => setColor("blue")}>
-      Blue
-    </button>
-    <button className=" btn btn-error" onClick={() => setColor("red")}>
-      Red
-    </button>
-    <button className=" btn bg-secondary" onClick={() => setColor("pink")}>
-      Pink
-    </button>
+    <button
+      className="btn rounded-full w-10 h-10 bg-green-500"
+      onClick={() => setColor("green")}
+    ></button>
+    <button
+      className="btn rounded-full w-10 h-10 bg-blue-700"
+      onClick={() => setColor("blue")}
+    ></button>
+    <button
+      className="btn rounded-full w-10 h-10 bg-red-500"
+      onClick={() => setColor("red")}
+    ></button>
+    <button
+      className="btn rounded-full w-10 h-10 bg-pink-500"
+      onClick={() => setColor("pink")}
+    ></button>
   </div>
 );
 
