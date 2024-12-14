@@ -1,0 +1,15 @@
+.component-container {
+  margin-left: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.canvas-container {
+  display: flex;
+  justify-content: center;
+}
+.canvas {
+  border: solid black 1px;
+}

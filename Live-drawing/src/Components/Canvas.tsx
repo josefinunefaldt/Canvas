@@ -3,6 +3,7 @@ import Triangle from "./Triangle";
 import Circle from "./Circle";
 import Square from "./Square";
 import ColorPalette from "./ColorPalette";
+import "../Canvas.css";
 
 type Position = {
   x: number;
@@ -52,27 +53,18 @@ const Canvas = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="canvas-container">
       <canvas
+        className="canvas"
         ref={canvasRef}
         width={1000}
         height={600}
-        style={{ border: "1px solid black" }}
         onMouseDown={startDrawing}
         onMouseMove={drawingSession}
         onMouseUp={stopDrawing}
         onMouseLeave={stopDrawing}
       />
-      <div
-        style={{
-          marginLeft: "4px",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "10px",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <div className="component-container">
         <Triangle canvasRef={canvasRef} />
         <Circle canvasRef={canvasRef} />
         <Square canvasRef={canvasRef} />
