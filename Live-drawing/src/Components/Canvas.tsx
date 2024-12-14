@@ -31,7 +31,11 @@ const Canvas = () => {
     canvasElement.stroke();
 
     setLastPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
+   
   };
+  const stopDrawing =()=>{
+    setDrawing(false);
+  }
 
   return (
     <canvas
@@ -41,6 +45,8 @@ const Canvas = () => {
       style={{ border: '1px solid black' }}
       onMouseDown={startDrawing}
       onMouseMove={drawingSession}
+      onMouseLeave={stopDrawing}
+      onMouseUp={stopDrawing}
     />
   );
 };
