@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import Triangle from './Triangle';
 
 type Position = {
   x: number;
@@ -6,7 +7,7 @@ type Position = {
 };
 
 const Canvas = () => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null); 
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [drawing, setDrawing] = useState(false);
   const [lastPosition, setLastPosition] = useState<Position>({ x: 0, y: 0 });
 
@@ -21,33 +22,39 @@ const Canvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const canvasElement = canvas.getContext('2d');
-    if (!canvasElement) return;
+    const context = canvas.getContext('2d');
+    if (!context) return;
 
-    canvasElement.strokeStyle = 'green'; 
-    canvasElement.beginPath();
-    canvasElement.moveTo(lastPosition.x, lastPosition.y);
-    canvasElement.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-    canvasElement.stroke();
+    context.strokeStyle = 'green';
+    context.beginPath();
+    context.moveTo(lastPosition.x, lastPosition.y);
+    context.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+    context.stroke();
 
     setLastPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
-   
   };
-  const stopDrawing =()=>{
+
+  const stopDrawing = () => {
     setDrawing(false);
-  }
+  };
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={1000}
-      height={600}
-      style={{ border: '1px solid black' }}
-      onMouseDown={startDrawing}
-      onMouseMove={drawingSession}
-      onMouseLeave={stopDrawing}
-      onMouseUp={stopDrawing}
-    />
+    <div  style={{ display: 'flex' }}>
+     
+      <canvas
+        ref={canvasRef}
+        width={1000}
+        height={600}
+        style={{ border: '1px solid black' }}
+        onMouseDown={startDrawing}
+        onMouseMove={drawingSession}
+        onMouseUp={stopDrawing}
+        onMouseLeave={stopDrawing}
+      />
+        <div  style={{ marginLeft: '2px', alignContent:'center' }}>
+        <Triangle canvasRef={canvasRef} />
+      </div>
+    </div>
   );
 };
 
