@@ -55,7 +55,7 @@ const Canvas = () => {
   return (
     <div className="canvas-container">
       <canvas
-        className="canvas"
+        className="canvas card  bg-slate-50 shadow-xl"
         ref={canvasRef}
         width={1000}
         height={600}
@@ -69,7 +69,9 @@ const Canvas = () => {
         <Circle canvasRef={canvasRef} />
         <Square canvasRef={canvasRef} />
         <ColorPalette setColor={setColor} />
-        <button onClick={deleteDrawing}>Delete</button>
+        <button className=" delete-btn btn btn-error" onClick={deleteDrawing}>
+          Delete
+        </button>
       </div>
     </div>
   );

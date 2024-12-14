@@ -18,7 +18,7 @@ const Triangle = ({ canvasRef }: TriangleProps) => {
     context.stroke();
   };
 
-  return <button onClick={drawTriangle}>Triangle</button>;
+  return <button className="triangle-btn" onClick={drawTriangle}></button>;
 };
 
 export default Triangle;

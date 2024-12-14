@@ -12,7 +12,7 @@ const Circle = ({ canvasRef }: CircleProps) => {
     context.arc(95, 50, 40, 0, 2 * Math.PI);
     context.stroke();
   };
-  return <button onClick={drawCircle}>Circle</button>;
+  return <button className="circle-btn" onClick={drawCircle}></button>;
 };
 
 export default Circle;
