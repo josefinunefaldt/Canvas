@@ -1,5 +1,3 @@
-import React from 'react';
-
 type TriangleProps = {
     canvasRef: React.RefObject<HTMLCanvasElement>;
   };
