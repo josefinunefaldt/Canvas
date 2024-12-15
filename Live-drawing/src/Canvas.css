@@ -1,8 +1,10 @@
 .component-container {
+  width: 100vw;
   margin-left: 4px;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -11,7 +13,7 @@
 }
 .canvas-container {
   display: flex;
-  justify-content: center;
+  margin-left: 2rem;
 }
 .canvas {
   border: solid black 1px;
