@@ -31,7 +31,7 @@ const Canvas = () => {
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    context.strokeStyle = "";
+    context.strokeStyle = color;
     context.beginPath();
     context.moveTo(lastPosition.x, lastPosition.y);
     context.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
