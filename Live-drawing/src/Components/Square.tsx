@@ -10,11 +10,12 @@ const Square = ({ canvasRef, color }: SquareProps) => {
     if (!context) return;
     context.strokeStyle = color;
     context.beginPath();
-    context.moveTo(100, 100);
-    context.lineTo(300, 100);
-    context.lineTo(300, 300);
-    context.lineTo(100, 300);
+    context.moveTo(700, 100);
+    context.lineTo(900, 100);
+    context.lineTo(900, 300);
+    context.lineTo(700, 300);
     context.closePath();
+
     context.stroke();
   };
   return <button className="square-btn" onClick={drawSquare}></button>;

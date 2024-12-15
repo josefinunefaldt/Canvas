@@ -14,6 +14,7 @@
 .canvas-container {
   display: flex;
   margin-left: 2rem;
+  margin-bottom: 2rem;
 }
 .canvas {
   border: solid black 1px;

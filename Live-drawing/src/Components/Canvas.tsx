@@ -31,7 +31,7 @@ const Canvas = () => {
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    context.strokeStyle = color;
+    context.strokeStyle = "";
     context.beginPath();
     context.moveTo(lastPosition.x, lastPosition.y);
     context.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
@@ -66,15 +66,15 @@ const Canvas = () => {
     <div>
       <div className="canvas-container">
         <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold font-cosmic mb-4 mt-1">
+          <h1 className="text-4xl font-bold font-cosmic mb-6 mt-6">
             Rocket doodle <i className="fas fa-rocket"></i>
           </h1>
 
           <canvas
             className="canvas card  bg-slate-50 shadow-xl"
             ref={canvasRef}
-            width={1000}
-            height={600}
+            width={1200}
+            height={550}
             onMouseDown={startDrawing}
             onMouseMove={drawingSession}
             onMouseUp={stopDrawing}

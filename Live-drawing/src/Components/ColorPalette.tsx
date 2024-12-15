@@ -18,7 +18,7 @@ const ColorPalette = ({ setColor }: ColorPaletteProps) => (
     ></button>
     <button
       className="btn rounded-full w-10 h-10 bg-pink-500"
-      onClick={() => setColor("pink")}
+      onClick={() => setColor("#FF69B4")}
     ></button>
   </div>
 );
