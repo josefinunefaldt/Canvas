@@ -1,8 +1,9 @@
-name: "Canvas"
+name: "Deploy React Vite App to Pages"
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - "main"
   workflow_dispatch:
 
 permissions:
