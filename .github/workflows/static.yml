@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # or the version specified in your project
+          node-version: 22 
 
       # Install dependencies and build the project
       - name: Install dependencies and build
@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload only the build output directory
-          path: 'dist'
+          path: './dist'
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
