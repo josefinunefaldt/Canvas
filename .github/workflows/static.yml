@@ -41,8 +41,8 @@ jobs:
 
       # Change to the working directory before installing dependencies
       - name: Install dependencies and build
+        working-directory: ./Live-drawing
         run: |
-          working-directory: ./Live-drawing
           npm ci
           npm run build
 
