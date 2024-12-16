@@ -39,13 +39,12 @@ jobs:
         with:
           node-version: 22 
 
+      # Change to the working directory before installing dependencies
       - name: Install dependencies and build
-        run: 
+        run: |
+          cd Live-drawing
           npm ci
-
-      - name: Install dependencies and build
-        run:  
-          npm run build   
+          npm run build
 
       # Setup Pages
       - name: Setup Pages
@@ -55,8 +54,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload only the build output directory
-          path: './dist'
+          path: './Live-drawing/dist'
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
