@@ -39,11 +39,13 @@ jobs:
         with:
           node-version: 22 
 
-      # Install dependencies and build the project
       - name: Install dependencies and build
-        run: |
+        run: 
           npm ci
-          npm run build # Ensure your package.json has the correct build script
+
+      - name: Install dependencies and build
+        run:  
+          npm run build   
 
       # Setup Pages
       - name: Setup Pages
